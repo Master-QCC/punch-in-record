@@ -1,0 +1,118 @@
+<view class="page-container history-page-container">
+	<!-- 滚动banner -->
+	<swiper class="days-swiper" indicator-active-color="#ffbe46" indicator-dots="true" autoplay="true">
+		<block wx:for="{{daysList}}" wx:key="index">
+			<swiper-item class="days-item">
+				<daysCard 
+					daysMsg="{{item.daysMsg}}"
+					daysNum="{{item.daysNum}}"
+					imgScr="{{item.imgScr}}"
+					color="{{item.color}}"></daysCard>
+			</swiper-item>
+		</block>
+	</swiper>
+	<!-- 历史记录 -->
+	<view class="history-nav-box {{stickyNav ? 'sticky': ''}}">
+		<view class="sort-select">
+			<block wx:for="{{sortNameList}}" wx:key="index">
+				<view class="sort-item">{{item.text}}</view>
+				<image mode="aspectFill" class="icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/more-gray.svg"></image>
+			</block>
+		</view>
+		<navigator url='/pages/history/vlog/vlog' class="vlog-nav">
+			Vlog
+			<image mode="aspectFill" class="icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/more-gray.svg"></image>
+		</navigator>
+		<view wx:if="{{needDelete}}" class="done-btn" bindtap="finishDelete">完成</view>
+	</view>
+	<view class="history-wrapper {{showHistory ? 'animation' : ''}}">
+		<view class="history-item-box" wx:for="{{historyList}}" wx:key="index" wx:for-index="idx">
+			<view class="history-item transition-effect {{item.expand ? 'open' : ''}} {{needDelete ? 'tremble' : ''}} {{item.addCaption ? 'add-caption' : ''}}" bindlongpress="showDeleteBtn" data-sort-index="{{idx}}" bindtap="openMore">
+				<view class="flex-box history-content">
+					<view class="text-content">
+						<view class="title">{{item.title}}</view>
+						<view class="description transition-effect">{{item.description}}</view>
+					</view>
+					<view class="image-content" data-image-list="{{item.imageList}}" catchtap="openGallery">
+						<block wx:for="{{item.imageList}}" wx:key="index">
+							<image class="image transition-effect" mode="aspectFill" src="{{item.src}}"></image>
+						</block>
+					</view>
+				</view>
+				<view class="overflow-box">
+					<view class="caption-box {{item.openCaption ? 'open' : ''}}">
+						<view wx:for="{{item.captionList}}" class="caption-text" wx:key="index">{{item}}</view>
+					</view>
+				</view>
+				<view class="flex-box history-toolbar">
+					<view class="history-time" data-item-num="{{item.itemNumber}}" data-sort-index="{{idx}}" data-full-time="{{item.time.fullTime}}" catchtap="showTime">{{item.time.agoTime}}</view>
+					<view class="like-box">
+						<view class="cation-btn-section transition-effect {{item.openCaption ? 'expand' : ''}}" wx:if="{{item.captionList.length > 0}}">
+							<image mode="aspectFill" data-sort-index="{{idx}}" catchtap="openComment" class="like-icon comment" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/comment.svg"></image>
+							<image mode="aspectFill" data-sort-index="{{idx}}" catchtap="closeComment" class="like-icon comment-active" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/comment-active.svg"></image>
+						</view>
+						<image mode="aspectFill" data-item-num="{{item.itemNumber}}" data-sort-index="{{idx}}" catchtap="thumbsUp" class="like-icon transition-effect {{item.agree ? '' : 'like'}}" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/agree.svg"></image>
+						<image mode="aspectFill" class="like-icon transition-effect {{item.agree ? 'agree' : ''}}" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/agree-fill.svg"></image>
+						<view class="thumbsUp-number" wx:if="{{item.agreeNumber > 0}}">{{item.agreeNumber}}</view>
+						<image mode="aspectFill" data-sort-index="{{idx}}" catchtap="addComment" class="like-icon add-comment transition-effect {{item.addCaption ? 'add-comment-active' : ''}}" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/add-comment.svg"></image>
+						<image mode="aspectFill" data-item-num="{{item.itemNumber}}" class="like-icon transition-effect more" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/more-gray.svg"></image>
+					</view>
+				</view>
+				<view class="delete-btn" wx:if="{{needDelete}}" bindtap="deleteItem" data-item-num="{{item.itemNumber}}" data-sort-index="{{idx}}">
+					<image class="icon" mode="aspectFill" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/close-white.svg"></image>
+				</view>
+			</view>
+			<view class="comment-input-box transition-effect {{item.addCaption ? 'open' : ''}}">
+				<input class="input-box" type="text" data-sort-index="{{idx}}" placeholder="添加评论" confirm-type="done" value="{{item.captionContent}}" bindinput="inputComment"/>
+				<view class="add-btn" data-item-num="{{item.itemNumber}}" data-sort-index="{{idx}}" catchtap="submitComment">
+					<image mode="aspectFill" class="icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/add-comment.svg"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="end-line" wx:if="{{showEnd}}">———— 到底啦，没有啦 ————</view>
+	<!-- 添加记录 -->
+	<view class="add-item-box {{openUpload ? 'open' : ''}} {{closeUpload ? 'close' : ''}}" bindtap="openUploadBox" catchtouchmove="true" wx:if="{{showUploadBtn}}">
+		<view class="filter-background"></view>
+		<image class="wrapper-add-icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/add.svg"></image>
+		<view class="upload-box">
+			<view class="header">
+				<text class="title">{{uploadTitleLabel}}</text>
+				<image catchtap="closeUploadBox" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/close.svg" class="close-btn"></image>
+			</view>
+			<view class="detial-box">
+				<view class="detial-item detial-title">
+					<view class="title">{{detialTitleLabel}}</view>
+					<input type="text" model:value="{{titleValue}}" />
+				</view>
+				<view class="detial-item detial-description">
+					<view class="description">{{detialDescriptionLabel}}</view>
+					<textarea maxlength="300" auto-height="true" cursor-spacing="8" model:value="{{descriptionValue}}" />
+				</view>
+				<view class="detial-item detial-date">
+					<picker placeholder="输入标题" class="picker" mode="date" value="{{dateValue}}" start="2020-01-01" end="2120-01-01" bindchange="bindDateChange">
+						{{detialDateLabel}}<view class="picker-value">{{dateValue}}</view>
+					</picker>
+				</view>
+				<view class="image-upload-box {{selected ? '': 'border'}}" bindtap="selectImg">
+					<scroll-view scroll-x="true" class="upload-list" wx:if="{{selected}}">
+						<block wx:for="{{userImageList}}" wx:key="index">
+							<image mode="aspectFill" class="upload-image" data-index='{{index}}' src="{{item}}" bindlongpress="deleteImg"></image>
+						</block>
+					</scroll-view>
+					<view class="add-image" wx:else>
+						<image  class="add-icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/add-image.svg"></image>
+						<text class="upload-des">{{uploadDes}}</text>
+					</view>
+				</view>
+			</view>
+			<button type="default" class="submit-btn" bindtap="doUpload" disabled="{{disableUpload}}">{{submitLabel}}</button>
+		</view>
+	</view>
+	
+	<gallery 
+    openGallery="{{showGallery}}"
+    currentIndex="{{currentIndex}}"
+    imageList="{{imageList}}">
+  </gallery>
+</view>

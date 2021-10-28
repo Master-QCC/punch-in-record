@@ -1,0 +1,22 @@
+<view class="page-container agreement-page-container">
+  <text class="title">用户协议</text>
+  <view class="list-item" wx:for="{{userClause}}" wx:key="index">
+    <view class="sub-title" bindtap="openItem" data-index="{{index}}" data-list-name="userClause">
+      {{item.title}}
+      <image mode="aspectFill" class="icon {{item.open ? 'open' : ''}}" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/more-gray.svg"></image>
+    </view>
+    <view class="content {{item.open ? 'open' : ''}}">
+      <rich-text nodes="{{item.content}}"></rich-text>
+    </view>
+  </view>
+  <text class="title top-space">隐私协议</text>
+  <view class="list-item" wx:for="{{privacyClause}}" wx:key="index">
+    <view class="sub-title" bindtap="openItem" data-index="{{index}}" data-list-name="privacyClause">
+      {{item.title}}
+      <image mode="aspectFill" class="icon {{item.open ? 'open' : ''}}" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/more-gray.svg"></image>
+    </view>
+    <view class="content {{item.open ? 'open' : ''}}">
+      <rich-text nodes="{{item.content}}"></rich-text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,59 @@
+<view>
+  <view class="punch-today-container">
+    <view class="punch-today-name orange-color">
+      <view class="title-punch">{{title}}</view>
+      <view class="today-info">
+        <view class="today-day">
+          <image class="clock-star" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/clock.png"></image><text>{{todayName}}</text>
+        </view>
+        <navigator url='/pages/weatherPkg/weather/weather' class="today-weather">{{todayWeather}}</navigator>
+      </view>
+    </view>
+
+    <view class="punch-today-box">
+      <punchTotal class="punch-total-box" id="punch-total-component"></punchTotal>
+    
+      <view class="punch-history">
+        <view class="punch-item punch-lunch {{shakeLunch ? 'shake': ''}}">
+          <view class="content">
+            <view class="title-text">
+              {{lunchTitle}} 
+              <span class="get-star-item" wx:if="{{getLunchStar}}">
+                <image src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/smallStar.svg"></image> 
+                {{addNumber}}
+                <Icon type="checkmark-round" class="icon"></Icon>
+              </span>
+            </view>
+            <span class="time-description">{{lunchDes}}</span>
+          </view>
+          <image class="punch-bg {{getLunchStar ? 'punched': ''}}" src="{{lunchBG}}" mode="aspectFit"></image>
+        </view>
+        <view class="punch-item punch-dinner {{shakeDinner ? 'shake': ''}}">
+          <view class="content">
+            <view class="title-text">
+              {{dinnerTitle}}
+              <span class="get-star-item" wx:if="{{getDinnerStar}}">
+                <image src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/smallStar.svg"></image> 
+                {{addNumber}}
+                <Icon type="checkmark-round" class="icon"></Icon>
+              </span>
+            </view>
+            <span class="time-description">{{dinnerDes}}</span>
+          </view>
+          <image class="punch-bg {{getDinnerStar ? 'punched': ''}}" src="{{dinnerBG}}" mode="aspectFit"></image>
+        </view>
+      </view>
+
+      <view bindtap="show_popUp" class="punch-item punch-star {{punched ? 'punched' : ''}} {{disabled ? 'disabled' : ''}}">
+        <text class="arrow arrow-left">→</text>
+        <block wx:if="{{showOutlineStar}}">
+          <image class="click-star" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/star.svg"></image>
+        </block>
+        <block wx:if="{{!showOutlineStar}}">
+          <image class="click-star" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/starFill.svg"></image> 
+        </block>
+        <text class="arrow arrow-right">←</text>
+      </view>
+    </view>
+  </view>
+</view>

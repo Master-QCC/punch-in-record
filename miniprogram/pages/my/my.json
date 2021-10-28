@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "小东西",
+  "usingComponents": {
+    "gallery": "../../components/common/gallery/gallery"
+  }
+}

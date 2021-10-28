@@ -1,0 +1,25 @@
+<view>
+  <view class="punch-total">
+    <view class="user-info" bindtap="goToLogin">
+      <view class="user-avatar" bindtap="show_love_name">
+        <open-data type="userAvatarUrl" class="user-avatar" wx:if="{{isLogin}}"></open-data>
+        <image src="../../../images/user-unlogin.png" class="user-avatar" wx:else></image>
+      </view>
+      <view class="user-name">
+        <open-data type="userNickName" wx:if="{{isLogin}}"></open-data>
+        <view wx:else>请登录</view>
+        <view class="small-name">{{smallName}}</view>
+      </view>
+      <text class="love-name" wx:if="{{showLove}}">{{loveName}}</text>
+    </view>
+    <view class="user-details">
+      <view bindtap="show_detail_popUp" data-item-num="{{index}}" class="details-item details-{{index + 1}}" wx:for="{{totalList}}" wx:key="index">
+        <image class="details-icon" src="{{item.detailsIcon}}"></image>
+        <text class="details-text">{{item.detailsText}}<text class="details-unit">{{item.detailsUnit}}</text></text>
+        <view class="number-popup {{item.showNUmber ? 'active' : ''}}">{{item.numberPopUp}}</view>
+        <view class="detail-popup" wx:if="{{item.showDetail}}">{{item.detailsPopUp}}</view>
+      </view>
+    </view>
+    <image class="icon-header" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/punch/icon-header.png" mode="aspectFit"></image>
+  </view>
+</view>

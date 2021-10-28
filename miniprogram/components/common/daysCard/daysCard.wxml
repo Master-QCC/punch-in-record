@@ -1,0 +1,8 @@
+<view class="days-card-container" style="color:{{color}}">
+  <image mode="aspectFill" class="bg" src="{{imgScr}}"></image>
+  <view class="days-time">
+    <view>{{daysMsg}}</view>
+    <text class="days-num">{{daysNum}}</text>
+    <text class="tian"> 天</text>
+  </view>
+</view>

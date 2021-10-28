@@ -1,0 +1,146 @@
+.punch-total {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 10px 12px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 30rpx;
+  margin-bottom: 48rpx;
+  box-sizing: border-box;
+
+  .user-info, .user-details {
+    display: flex;
+  }
+
+  .user-info {
+    position: relative;
+    padding: 32rpx;
+    justify-content: space-around;
+    align-items: center;
+
+    .user-avatar {
+      width: 160rpx;
+      height: 160rpx;
+      border-radius: 50%;
+      margin-right: 60rpx;
+      overflow: hidden;
+    }
+
+    .user-name {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: bold;
+      font-size: larger;
+
+      .small-name {
+        margin-top: 32rpx;
+        color: #ffd664;
+        font-size: small;
+        font-weight: normal;
+      }
+    }
+
+    .love-name {
+      position: absolute;
+      top: 20rpx;
+      left: 0;
+      border-radius: 30rpx;
+      transform: rotate(-30deg);
+      background-color: white;
+      padding: 16rpx;
+      box-shadow: 0 10px 12px 2px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .user-details {
+    background-color: #fff7ee;
+    border-radius: 0 0 30rpx 30rpx;
+
+    .details-item {
+      position: relative;
+      width: 33%;
+      margin: 32rpx 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .details-icon {
+        width: 64rpx;
+        height: 64rpx;
+      }
+
+      .details-text {
+        font-weight: bold;
+        margin-left: 16rpx;
+        font-size: 48rpx;
+
+        .details-unit {
+          font-size: 16rpx;
+          margin-left: .6rpx;
+        }
+      }
+
+      .number-popup {
+        position: absolute;
+        display: none;
+        top: -32rpx;
+        right: 64rpx;
+        padding: 16rpx;
+        z-index: 1;
+
+        &.active {
+          display: block;
+          animation: numberActive 2s ease forwards;
+        }
+      }
+
+      .detail-popup {
+        position: absolute;
+        bottom: -96rpx;
+        padding: 16rpx;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: -32rpx;
+          left: calc(50% - 8px);
+          width: 0;
+          height: 0;
+          border-color: transparent transparent white transparent;
+          border-style: solid;
+          border-width: 8px;
+        }
+      }
+    }
+
+    .details-2 {
+      border-left: 1px solid #ffd664;
+      border-right: 1px solid #ffd664;
+    }
+  }
+
+  .icon-header {
+    position: absolute;
+    top: -96rpx;
+    left: 35%;
+    width: 96rpx;
+    height: 96rpx;
+  }
+}
+
+@keyframes numberActive {
+  from {
+    top: -32rpx;
+    opacity: 1;
+  }
+  to {
+    top: -2rem;
+    opacity: 0;
+  }
+}

@@ -1,0 +1,196 @@
+.my-page-container {
+  padding: 0;
+}
+
+.my-page-container .my-box {
+  position: relative;
+  width: 100%;
+}
+
+.my-page-container .my-box image {
+  width: 100%;
+}
+
+.my-page-container .my-box .title {
+  position: absolute;
+  top: 24rpx;
+  left: 80rpx;
+  line-height: 1.5;
+  font-size: 64rpx;
+  font-weight: bold;
+  color: white;
+}
+
+.my-page-container .attr-list {
+  padding: 0 32rpx;
+}
+
+.my-page-container .attr-list .my-attr {
+  position: relative;
+  width: 100%;
+  border-radius: 30rpx;
+  box-shadow: 0 10px 12px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 32rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.my-page-container .attr-list .my-attr .attr-section {
+  display: flex;
+  padding: 32rpx;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.my-page-container .attr-list .my-attr .attr-section .attr-image {
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 32rpx;
+  flex: none;
+}
+
+.my-page-container .attr-list .my-attr .attr-section .attr-icon {
+  flex: none;
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 8rpx;
+  transition: all 1s ease-in-out;
+}
+
+.my-page-container .attr-list .my-attr .attr-section .attr-icon.rotate {
+  transform: rotate(-180deg);
+}
+
+.my-page-container .attr-list .my-attr .attr-section .attr-detail {
+  color: white;
+}
+
+.my-page-container .attr-list .my-attr .attr-section .attr-detail .name {
+  font-size: 36rpx;
+  margin-bottom: 16rpx;
+  font-weight: bold;
+}
+
+.my-page-container .attr-list .my-attr .attr-section .attr-detail .description {
+  font-size: 28rpx;
+  opacity: 0.7;
+}
+
+.my-page-container .attr-list .my-attr .attr-image-box {
+  white-space: nowrap;
+  height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: all 1s ease-in-out;
+}
+
+.my-page-container .attr-list .my-attr .attr-image-box.show {
+  height: 232rpx;
+}
+
+.my-page-container .attr-list .my-attr .attr-image-box .detail-image {
+  display: inline-block;
+  width: 23%;
+  height: 200rpx;
+  margin-right: 16rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.1);
+}
+
+.my-page-container .attr-list .my-attr .attr-image-box .detail-image:first-child {
+  margin-left: 32rpx;
+}
+
+.my-page-container .attr-list .my-attr .attr-image-box .detail-image:last-child {
+  margin-right: 32rpx;
+}
+
+.my-page-container .attr-list .my-attr .upload-image-btn {
+  background-color: white;
+  position: absolute;
+  bottom: 16rpx;
+  right: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100rpx;
+  padding: 8rpx;
+  width: 60rpx;
+  height: 60rpx;
+  opacity: 0;
+  overflow: hidden;
+  box-shadow: 0 10px 12px 2px rgba(0, 0, 0, 0.1);
+  transition: all .5s ease-out;
+  box-sizing: border-box;
+}
+
+.my-page-container .attr-list .my-attr .upload-image-btn.show {
+  opacity: 1;
+}
+
+.my-page-container .attr-list .my-attr .upload-image-btn.open {
+  width: 250rpx;
+  height: 250rpx;
+  border-radius: 30rpx;
+}
+
+.my-page-container .attr-list .my-attr .upload-image-btn.open .add-icon {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.my-page-container .attr-list .my-attr .upload-image-btn .add-icon {
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.my-page-container .attr-list .my-attr:nth-child(1) {
+  background: linear-gradient(-45deg, #E6D7D6 0%, #A87B99 100%);
+}
+
+.my-page-container .attr-list .my-attr:nth-child(2) {
+  background: linear-gradient(-45deg, #BDD99A 0%, #4B7C99 100%);
+}
+
+.my-page-container .attr-list .my-attr:nth-child(3) {
+  background: linear-gradient(-45deg, #e76e56 0%, #825555 100%);
+}
+
+.my-page-container .attr-list .my-attr:nth-child(4) {
+  background: linear-gradient(-45deg, #F5A236 0%, #C72840 100%);
+}
+
+.my-page-container .attr-list .my-attr:nth-child(5) {
+  background: linear-gradient(-45deg, #A7B6CC 0%, #a7509b 100%);
+}
+
+.my-page-container .attr-list .my-attr:nth-child(odd) {
+  animation: showItemFromLeft ease 2s forwards;
+}
+
+.my-page-container .attr-list .my-attr:nth-child(even) {
+  animation: showItemFromRight ease 2s forwards;
+}
+
+@keyframes showItemFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes showItemFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}

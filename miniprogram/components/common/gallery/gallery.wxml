@@ -1,0 +1,12 @@
+<view class="gallery-swiper {{openGallery ? 'open': ''}}">
+  <swiper class="gallery-list-box" current="{{currentIndex}}" indicator-dots="{{imageList.length > 1}}" indicator-active-color="#ffbe46">
+    <block wx:for="{{imageList}}" wx:key="index">
+      <swiper-item class="gallery-item">
+        <view class="image-wrapper">
+          <image class="gallery-image" mode="widthFix" src="{{item.src}}"></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <image class="close-btn {{openGallery ? 'open': ''}}" bindtap="_closeGallery" mode="aspectFill" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/close-black.svg"></image>
+</view>

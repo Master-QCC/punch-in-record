@@ -1,0 +1,63 @@
+<view class="page-container weather-page-container">
+  <view class="today-weather">
+    <view class="now-weather">
+      <image class="main-image" mode="aspectFill" src="{{weatherSrc}}">
+        <view class="main-content {{fontColor}}">
+          <text class="weather-title">{{weatherTitle}}</text>
+          <text class="location">{{location}}</text>
+        </view>
+        <button type="default" bindtap="subscribeWeather" class="subscribe-btn {{fontColor}}">订阅天气预报</button>
+        <view class="caption-box {{fontColor}}">
+          <view wx:for="{{captionList}}" class="caption-text" wx:key="index">{{item}}</view>
+        </view>
+      </image>
+      <view class="weather-info-box {{fontColor}}">
+        <view class="tmp-box">
+          <view class="border-line-box">
+            <view class="border-line-wrapper">
+              <view class="border-line"></view>
+            </view>
+          </view>
+          <view class="tmp-max-min">
+            <view class="tmp-min">
+              <text>{{tmpMin}}</text>
+            </view>
+            <view class="now-tmp">{{nowTmp}}</view>
+            <view class="tmp-max">  
+              <text>{{tmpMax}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="tmp-details">
+          <view class="detail-item" wx:for="{{detailList}}" wx:key="index">
+            <text class="item-title">{{item.title}}</text>
+            <text class="item-value">{{item.value}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="canvas-box">
+      <ec-canvas id="line-chart" type="2d" canvas-id="line-chart" ec="{{ec}}"></ec-canvas>
+    </view>
+  </view>
+  <scroll-view scroll-x="true" class="swiper-view-weather">
+    <view class="weather-view-item" wx:for="{{weatherWeek}}" wx:key="index">
+      <view class="item-inner">
+        <image class="item-tmp-img" mode="aspectFill" src="{{item.img_code}}">
+          <text class="tmp-txt {{item.color}}">{{item.cond_txt_n === item.cond_txt_d ? item.cond_txt_n : item.cond_txt_n + '~' + item.cond_txt_d}}</text>
+        </image>
+        <view class="tmp-max-min">
+          <view class="tmp-min">
+            <image mode="aspectFit" class="tmp-icon" src="../images/weather/low.svg"></image>
+            <text class="tmp-value low">{{item.tmp_min}}</text>
+          </view>
+          <view class="tmp-max">
+            <image mode="aspectFit"class="tmp-icon" src="../images/weather/high.svg"></image>
+            <text class="tmp-value high">{{item.tmp_max}}</text>
+          </view>
+        </view>
+        <text class="item-date-name">{{item.date}}             {{item.weekday}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,42 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "weather",
+          "pathName": "pages/weatherPkg/weather/weather",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/history/history",
+          "pathName": "pages/history/history",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/wish/wish",
+          "pathName": "pages/wish/wish",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/userAgreement/userAgreement",
+          "pathName": "pages/login/userAgreement/userAgreement",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<view class="page-container index-page-container">
+
+  <punchToday class="punch-today" id="punch-today-component"></punchToday>
+  <button bindtap="login" wx:if="{{showLogin}}" class="login-button">{{loginText}}</button>
+
+  <navigator url='/pages/login/userAgreement/userAgreement' class="agreement-btn">用户协议 / 隐私协议</navigator>
+  <cartoonFigure imagePath="{{imagePath}}"></cartoonFigure>
+
+</view>

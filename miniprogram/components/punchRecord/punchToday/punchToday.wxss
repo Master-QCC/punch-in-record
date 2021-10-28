@@ -1,0 +1,292 @@
+.punch-today-container {
+  padding-bottom: 32rpx;
+  color: black;
+  border-radius: 0;
+  flex-direction: column;
+}
+
+.punch-today-container.no-border {
+  border-bottom: none;
+}
+
+.punch-today-container .orange-color {
+  color: #ffbe46;
+}
+
+.punch-today-container .punch-today-name {
+  font-size: 32rpx;
+  margin-bottom: 32rpx;
+  margin-top: -16rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.punch-today-container .punch-today-name .title-punch {
+  font-size: 96rpx;
+  background: linear-gradient(140deg, #ffbe46 20%, #E349C4 100%);
+  background-position: 50% 75%;
+  background-size: 100% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.punch-today-container .punch-today-name .today-info {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding-top: 16rpx;
+}
+
+.punch-today-container .punch-today-name .today-info .today-day {
+  display: flex;
+  align-items: center;
+}
+
+.punch-today-container .punch-today-name .today-info .today-weather {
+  line-height: 50rpx;
+}
+
+.punch-today-container .punch-today-name .today-info .today-weather .hbhao {
+  display: none;
+}
+
+.punch-today-container .punch-today-name .today-info .today-weather .xs {
+  color: #ffbe46 !important;
+}
+
+.punch-today-container .punch-today-name .clock-star {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 12rpx;
+}
+
+.punch-today-container .punch-today-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.punch-today-container .punch-today-box .punch-total-box {
+  width: 100%;
+  opacity: 0;
+  animation: showItem 3s ease forwards;
+  z-index: 1;
+}
+
+.punch-today-container .punch-today-box .punch-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  box-shadow: 0 10px 12px 2px rgba(0, 0, 0, 0.1);
+  padding: 24rpx 32rpx;
+  overflow: hidden;
+  border-radius: 30rpx;
+  margin-bottom: 48rpx;
+}
+
+.punch-today-container .punch-today-box .punch-item p {
+  display: flex;
+}
+
+.punch-today-container .punch-today-box .punch-item .punch-bg {
+  width: 230rpx;
+  height: 120rpx;
+}
+
+.punch-today-container .punch-today-box .punch-item .punch-bg.punched {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.punch-today-container .punch-today-box .punch-item .get-star-item {
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+}
+
+.punch-today-container .punch-today-box .punch-item .get-star-item image {
+  margin: 0 16rpx;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.punch-today-container .punch-today-box .punch-item .get-star-item .icon {
+  color: #F8D64A;
+  line-height: 1.5;
+  margin-left: 16rpx;
+}
+
+.punch-today-container .punch-today-box .punch-item .time-description {
+  color: #b2b2b2;
+  opacity: 0.8;
+}
+
+.punch-today-container .punch-today-box .punch-star {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(-45deg, #ffd664 20%, #ff8d5c 100%);
+  opacity: 0;
+  animation: showItem 3s ease 3s forwards;
+  margin-bottom: 0;
+}
+
+.punch-today-container .punch-today-box .punch-star.punched .arrow {
+  display: none;
+}
+
+.punch-today-container .punch-today-box .punch-star.disabled {
+  background: linear-gradient(135deg, #fffdf6 20%, #d6cdc9 100%);
+}
+
+.punch-today-container .punch-today-box .punch-star.disabled .click-star {
+  animation: none;
+}
+
+.punch-today-container .punch-today-box .punch-star.disabled .arrow {
+  display: none;
+}
+
+.punch-today-container .punch-today-box .punch-star .arrow {
+  font-size: 96rpx;
+  color: white;
+  animation-direction: alternate;
+}
+
+.punch-today-container .punch-today-box .punch-star .arrow-left {
+  animation: moveLeftEvent 4s infinite;
+}
+
+.punch-today-container .punch-today-box .punch-star .arrow-right {
+  animation: moveRightEvent 4s infinite;
+}
+
+.punch-today-container .punch-today-box .punch-star .click-star {
+  width: 160rpx;
+  height: 160rpx;
+  animation: scaleEvent 2s infinite;
+  animation-direction: alternate;
+}
+
+.punch-today-container .punch-today-box .punch-history {
+  width: 100%;
+}
+
+.punch-today-container .punch-today-box .punch-history .punch-lunch {
+  position: relative;
+  opacity: 0;
+  animation: showItem 3s ease 1s forwards;
+}
+
+.punch-today-container .punch-today-box .punch-history .punch-lunch.shake {
+  opacity: 1;
+  animation: shake 1s ease-in-out;
+}
+
+.punch-today-container .punch-today-box .punch-history .punch-dinner {
+  position: relative;
+  opacity: 0;
+  animation: showItem 3s ease 2s forwards;
+}
+
+.punch-today-container .punch-today-box .punch-history .punch-dinner.shake {
+  opacity: 1;
+  animation: shake 1s ease-in-out;
+}
+
+.punch-today-container .punch-today-box .punch-history .title-text {
+  display: flex;
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+  50% {
+    transform: translate3d(-4px, 0, 0);
+  }
+}
+
+@keyframes scaleEvent {
+  from {
+    transform: translateZ(0) scale(0.8);
+  }
+  to {
+    transform: translateZ(0) scale(1.2);
+  }
+}
+
+@keyframes punchLunch {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-25deg);
+  }
+}
+
+@keyframes moveLeftEvent {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  55% {
+    transform: translateX(60rpx);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 0;
+  }
+}
+
+@keyframes moveRightEvent {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  55% {
+    transform: translateX(-60rpx);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 0;
+  }
+}
+
+@keyframes showItem {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

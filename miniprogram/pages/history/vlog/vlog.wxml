@@ -1,0 +1,42 @@
+<view class="page-container vlog-page-container">
+  <block wx:for="{{videoList}}" wx:key="index">
+    <videoCard class="video-card"
+    id="videoCard-{{index}}"
+    videoTitle="{{item.title}}" 
+    videoScr="{{item.src}}" 
+    time="{{item.time}}"
+    danmuList="{{item.danmuList}}"
+    thumbsNumber="{{item.thumbsNumber}}" 
+    playNumber="{{item.playNumber}}"
+    danmuNumber="{{item.danmuList.length}}"
+    itemNum="{{item.itemNumber}}"></videoCard>
+  </block>
+  <!-- 添加记录 -->
+  <view class="add-item-box {{openUpload ? 'open' : ''}} {{closeUpload ? 'close' : ''}}" bindtap="openUploadBox" wx:if="{{showUploadBtn}}">
+		<view class="filter-background"></view>
+		<image class="wrapper-add-icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/add.svg"></image>
+		<view class="upload-box">
+			<view class="header">
+				<text class="title">{{uploadTitleLabel}}</text>
+				<image catchtap="closeUploadBox" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/close.svg" class="close-btn"></image>
+			</view>
+			<view class="detial-box">
+				<view class="detial-item detial-title">
+					<view class="title">{{detialTitleLabel}}</view>
+					<input type="text" model:value="{{titleValue}}" />
+				</view>
+				<view class="detial-item detial-date">
+					<picker placeholder="输入标题" class="picker" mode="date" value="{{dateValue}}" start="2020-01-01" end="2120-01-01" bindchange="bindDateChange">
+						{{detialDateLabel}}<view class="picker-value">{{dateValue}}</view>
+					</picker>
+				</view>
+				<view class="video-upload-box {{selected ? '': 'border'}}" bindtap="selectVideo">
+					<image mode="aspectFit" wx:if="{{selected}}" class="user-video" src="{{userImagePath}}"></image>
+					<image mode="aspectFit" wx:if="{{selected}}" class="play-btn" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/play.svg"></image>
+					<image wx:else class="add-icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/add-video.svg"></image>
+				</view>
+			</view>
+			<button type="default" class="submit-btn" bindtap="doUpload">{{submitLabel}}</button>
+		</view>
+	</view>
+</view>

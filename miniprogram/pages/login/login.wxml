@@ -1,0 +1,9 @@
+<view class="page-container login-page-container">
+  <!-- 用户 openid -->
+  <view class="userinfo {{hasUserInfo ? 'hasUserInfo': ''}}">
+    <button class="login-button" size="default" wx:if="{{canIUse}}" bindtap="getUserProfile">授权登录</button>
+    <view class="signature">{{signature}}</view>
+    <navigator url='/pages/login/userAgreement/userAgreement' class="agreement-btn">用户协议 / 隐私协议</navigator>
+  </view>
+  <image class="loginbg" mode="heightFix" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/loginBG.jpg"/>
+</view>

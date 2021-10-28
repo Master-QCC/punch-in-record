@@ -1,0 +1,37 @@
+<view class="page-container my-page-container">
+  <view class="my-box">
+    <image mode="widthFix" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/my/my-bg.png"></image>
+    <view class="title">
+      <view>百变，</view>
+      <view>调皮，</view>
+      <view>讲不听</view>
+    </view>
+  </view>
+  <view class="attr-list">
+    <block wx:for="{{myAttrList}}" wx:key="index" wx:for-index="idx">
+      <view class="my-attr">
+        <view class="attr-section" data-item-num="{{idx}}" bindtap="expandImageList">
+          <image mode="aspectFit" class="attr-image" lazy-load="true" src="{{item.image}}"></image>
+          <view class="attr-detail">
+            <view class="name">{{item.name}}</view>
+            <view class="description">{{item.description}}</view>
+          </view>
+          <image mode="aspectFit" class="attr-icon {{item.open ? 'rotate': ''}}" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/more.svg"></image>
+        </view>
+        <scroll-view scroll-x="true" class="attr-image-box {{item.open ? 'show' : ''}}" bindscroll="closeUploadbtn">
+          <block wx:for="{{item.detailImageList}}" wx:key="index">
+            <image mode="aspectFill" bindtap="openGallery" lazy-load="true" class="detail-image" data-item-num="{{idx}}" data-index="{{index}}" src="{{item.src}}"></image>
+          </block>
+        </scroll-view>
+        <view class="upload-image-btn {{item.open ? 'show' : ''}} {{addBtnId == idx ? 'open' : ''}}" data-item-id="{{idx}}" bindtap="openUploadBox" wx:if="{{showUploadBtn}}">
+          <image class="add-icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/add.svg"></image>
+        </view>
+      </view>
+    </block>
+  </view>
+  <gallery 
+    openGallery="{{showGallery}}"
+    currentIndex="{{currentIndex}}"
+    imageList="{{imageList}}">
+  </gallery>
+</view>

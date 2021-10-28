@@ -1,0 +1,198 @@
+.vlog-page-container {
+  overflow: hidden;
+}
+
+.vlog-page-container .video-card {
+  width: 100%;
+  margin-bottom: 32rpx;
+}
+
+.vlog-page-container .add-item-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 32rpx;
+  left: 50%;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  width: 150rpx;
+  height: 80rpx;
+  padding: 32rpx;
+  box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.1);
+  transform: translateX(-50%);
+  color: #ff8d5c;
+  animation-direction: alternate;
+  z-index: 3;
+}
+
+.vlog-page-container .add-item-box .filter-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 30rpx;
+  backdrop-filter: saturate(180%) blur(30px);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.vlog-page-container .add-item-box .upload-box {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.vlog-page-container .add-item-box .upload-box .header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 48rpx;
+  margin-bottom: 8rpx;
+}
+
+.vlog-page-container .add-item-box .upload-box .header .title {
+  background: linear-gradient(140deg, #ffbe46 20%, #E349C4 100%);
+  background-position: 50% 75%;
+  background-size: 100% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.vlog-page-container .add-item-box .upload-box .header .close-btn {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.vlog-page-container .add-item-box .upload-box .detial-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #ffedd2;
+}
+
+.vlog-page-container .add-item-box .upload-box .detial-item .title {
+  flex: none;
+}
+
+.vlog-page-container .add-item-box .upload-box .detial-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32rpx;
+}
+
+.vlog-page-container .add-item-box .upload-box .detial-box .detial-title .title {
+  flex: none;
+}
+
+.vlog-page-container .add-item-box .upload-box .detial-box .detial-title input {
+  color: black;
+}
+
+.vlog-page-container .add-item-box .upload-box .detial-box .detial-date {
+  margin-bottom: 32rpx;
+}
+
+.vlog-page-container .add-item-box .upload-box .detial-box .detial-date .picker {
+  width: 100%;
+  padding: 19rpx 0;
+}
+
+.vlog-page-container .add-item-box .upload-box .detial-box .detial-date .picker .picker-value {
+  display: inline;
+  color: black;
+  font-size: 36rpx;
+}
+
+.vlog-page-container .add-item-box .upload-box .detial-box .video-upload-box {
+  position: relative;
+  width: 100%;
+  height: 200rpx;
+  border-radius: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.vlog-page-container .add-item-box .upload-box .detial-box .video-upload-box.border {
+  border: 2px dashed #bfbfbf;
+}
+
+.vlog-page-container .add-item-box .upload-box .detial-box .video-upload-box .add-icon {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.vlog-page-container .add-item-box .upload-box .detial-box .video-upload-box .play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50;
+  transform: translateY(-50%);
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.vlog-page-container .add-item-box .upload-box .detial-box .video-upload-box .user-video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.vlog-page-container .add-item-box .upload-box .submit-btn {
+  width: 100%;
+  border-radius: 30rpx;
+  color: #ff8d5c;
+  background: white;
+  box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.1);
+}
+
+.vlog-page-container .add-item-box .wrapper-add-icon {
+  width: 64rpx;
+  height: 64rpx;
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.vlog-page-container .add-item-box.open {
+  height: auto;
+  animation: openAddBox 1s ease forwards;
+}
+
+.vlog-page-container .add-item-box.open .upload-box {
+  display: block;
+}
+
+.vlog-page-container .add-item-box.open .wrapper-add-icon {
+  display: none;
+}
+
+.vlog-page-container .add-item-box.close {
+  animation: closeAddBox 1s ease forwards;
+}
+
+@keyframes openAddBox {
+  from {
+    width: 150rpx;
+    height: 80rpx;
+    color: #9b6507;
+  }
+  to {
+    width: 80%;
+    height: 650rpx;
+  }
+}
+
+@keyframes closeAddBox {
+  from {
+    width: 80%;
+    height: 650rpx;
+  }
+  to {
+    width: 150rpx;
+    height: 80rpx;
+  }
+}

@@ -1,0 +1,25 @@
+<view class="video-card-container">
+  <view class="video-box">
+    <video src="{{videoScr}}" id="video-{{itemNum}}" data-item-num="{{itemNum}}" bindtimeupdate="_getCurrentTime" bindplay="_startPlay" class="video" danmu-btn="true" enable-danmu="true" danmu-list="{{danmuList}}" enable-auto-rotation="true" title="{{videoTitle}}"></video>
+    <view class="video-title">
+      <view>{{videoTitle}}</view>
+      <image mode="aspectFill" wx:if="{{playNumber > 20}}" class="icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/hot.svg"></image>
+    </view>
+    <view class="detial-box">
+      <view class="vlog-time">{{time}}</view>
+      <view class="danmu">{{danmuNumber}}弹幕</view>
+      <view class="danmu">{{playNumber}}观看</view>
+    </view>
+    <view class="vlog-toolbar">
+      <view class="tool-box">
+        <image mode="aspectFill" data-item-num="{{itemNum}}" bindtap="_thumbsUp" class="like-icon transition-effect {{agree ? '' : 'like'}}" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/agree.svg"></image>
+        <image mode="aspectFill" class="like-icon transition-effect {{agree ? 'agree' : ''}}" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/agree-fill.svg"></image>
+        <view class="thumbsUp-number" wx:if="{{thumbsNumber > 0}}">{{thumbsNumber}}</view>
+      </view>
+      <view class="danmu-box">
+        <input class="danmu-input {{focus ? 'focus': ''}}" type="text" placeholder="添加弹幕" bindfocus="_danmuFocus" bindblur="_danmuBlur" model:value="{{danmuValue}}" />
+        <view class="danmu-btn" data-item-num="{{itemNum}}" bindtap="_addDanmu">添加</view>
+      </view>
+    </view>
+  </view>
+</view>

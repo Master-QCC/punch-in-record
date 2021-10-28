@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "心愿",
+  "usingComponents": {
+    "autoHeightSwiper": "../../components/common/autoHeightSwiper/autoHeightSwiper"
+  }
+}

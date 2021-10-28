@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "回忆",
+  "usingComponents": {
+    "daysCard": "../../components/common/daysCard/daysCard",
+    "gallery": "../../components/common/gallery/gallery"
+  }
+}

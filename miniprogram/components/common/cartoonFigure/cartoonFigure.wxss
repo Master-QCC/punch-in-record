@@ -1,0 +1,37 @@
+.cartoon-box {
+  position: fixed;
+  bottom: 32rpx;
+  right: 32rpx;
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.cartoon-box .cartoon-text {
+  position: absolute;
+  top: -84rpx;
+  right: 16rpx;
+  padding: 16rpx;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  width: max-content;
+}
+
+.cartoon-box .cartoon-text:before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -28rpx;
+  right: 40rpx;
+  width: 0;
+  height: 0;
+  border-color: white transparent transparent transparent;
+  border-style: solid;
+  border-width: 8px;
+}
+
+.cartoon-box .cartoon-image {
+  width: 100%;
+  height: 100%;
+}

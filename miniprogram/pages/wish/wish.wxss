@@ -1,0 +1,458 @@
+.wish-page-container {
+  padding: 32rpx;
+}
+
+.wish-page-container .flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wish-page-container .wish-section, .wish-page-container .wish-info {
+  width: 100%;
+}
+
+.wish-page-container .wish-info {
+  line-height: 1.2;
+}
+
+.wish-page-container .wish-info .wish-list {
+  position: relative;
+  padding: 16rpx;
+  background-color: white;
+  border-radius: 30rpx;
+  box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin-bottom: 32rpx;
+  opacity: 0;
+  width: calc(50% - 16rpx);
+}
+
+.wish-page-container .wish-info .wish-list.man {
+  transform: translate(-50%, -50%);
+  animation: showManInfo ease 1.5s forwards;
+}
+
+.wish-page-container .wish-info .wish-list.woman {
+  transform: translate(50%, -50%);
+  animation: showWomanInfo ease 1.5s forwards;
+}
+
+.wish-page-container .wish-info .user-icon {
+  margin-bottom: 16rpx;
+  margin-left: 8rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.wish-page-container .wish-info .total {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wish-page-container .wish-info .total .item {
+  padding: 12rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  transition: all .3s ease-in-out;
+}
+
+.wish-page-container .wish-info .total .item.active {
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.1) inset;
+}
+
+.wish-page-container .wish-info .total .number {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.wish-page-container .wish-info .total .number.finish {
+  color: #ffbe46;
+}
+
+.wish-page-container .wish-info .total .number.unfinish {
+  color: #363636;
+}
+
+.wish-page-container .wish-info .total .icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 16rpx;
+}
+
+.wish-page-container .wish-section .wish-list {
+  width: calc(50% - 16rpx);
+  opacity: 0;
+}
+
+.wish-page-container .wish-section .wish-list.animation {
+  animation: showItem 1.5s ease forwards;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item {
+  position: relative;
+  padding: 32rpx;
+  background-color: white;
+  border-radius: 30rpx;
+  box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin-bottom: 32rpx;
+  opacity: 0;
+  transition: all .5s ease-out;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item .swiper {
+  width: 100%;
+  margin-bottom: 16rpx;
+  transition: all .5s ease-out;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item .swiper .wish-image {
+  width: 100%;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item .description .textarea {
+  padding: 0;
+  text-indent: 0;
+  min-height: unset;
+  max-height: unset;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item .time {
+  padding-top: 16rpx;
+  font-size: 0.75rem;
+  color: #d1d1d1;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item .finish-btn {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item .finish-btn .star-section {
+  justify-content: flex-start;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item .finish-btn .star-section .star-icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item .finish-btn .wx-checkbox-input {
+  border-color: #7e7e7e;
+  border-radius: 50%;
+  color: #ffbe46;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item .finish-btn .wx-checkbox-input.wx-checkbox-input-checked {
+  border-color: #ffbe46;
+  background: #ffffff;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item .tag {
+  position: absolute;
+  top: 0;
+  right: -12rpx;
+  padding: 8rpx;
+  border-radius: 20rpx;
+  color: #ff531e;
+  background-color: white;
+  box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ff531e;
+  transform: rotate(30deg);
+  z-index: 2;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item .tag .tag-text {
+  background: linear-gradient(0deg, #ffbe46 0%, #ff531e 80%);
+  background-position: 50% 75%;
+  background-size: 100% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item .cheer {
+  position: absolute;
+  top: -8rpx;
+  left: -8rpx;
+  padding: 8rpx;
+  border-radius: 20rpx;
+  background-color: white;
+  box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.1);
+  transform: rotate(-30deg);
+  z-index: 2;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item .cheer .cheer-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item:nth-child(odd) {
+  animation: showItemFromLeft ease 2s forwards;
+}
+
+.wish-page-container .wish-section .wish-list .wish-item:nth-child(even) {
+  animation: showItemFromRight ease 2s forwards;
+}
+
+.wish-page-container .add-item-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 16rpx;
+  left: 50%;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  width: 150rpx;
+  height: 80rpx;
+  padding: 32rpx;
+  box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.1);
+  transform: translateX(-50%);
+  color: #ff8d5c;
+  animation-direction: alternate;
+  z-index: 3;
+}
+
+.wish-page-container .add-item-box .filter-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: 30rpx;
+  backdrop-filter: saturate(180%) blur(30px);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.wish-page-container .add-item-box .upload-box {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.wish-page-container .add-item-box .upload-box .header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 48rpx;
+  margin-bottom: 8rpx;
+}
+
+.wish-page-container .add-item-box .upload-box .header .title {
+  background: linear-gradient(140deg, #ffbe46 20%, #E349C4 100%);
+  background-position: 50% 75%;
+  background-size: 100% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.wish-page-container .add-item-box .upload-box .header .close-btn {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #bfbfbf;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-item .title {
+  flex: none;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-box .detial-description .description {
+  flex: none;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-box .image-upload-box {
+  width: 100%;
+  margin: 32rpx 0;
+  border-radius: 30rpx;
+  height: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-box .image-upload-box.border {
+  border: 2px dashed #bfbfbf;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-box .image-upload-box .upload-list {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-box .image-upload-box .upload-list .upload-image {
+  width: 30%;
+  border-radius: 20rpx;
+  height: 200rpx;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.1);
+}
+
+.wish-page-container .add-item-box .upload-box .detial-box .image-upload-box .upload-list .upload-image:first-child {
+  margin-left: 32rpx;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-box .image-upload-box .upload-list .upload-image:last-child {
+  margin-right: 32rpx;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-box .image-upload-box .add-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-box .image-upload-box .add-image .add-icon {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-box .image-upload-box .add-image .upload-des {
+  opacity: .4;
+  text-align: center;
+  font-size: smaller;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-box .star-select-section {
+  width: max-content;
+  justify-content: center;
+}
+
+.wish-page-container .add-item-box .upload-box .detial-box .star-select-section .star-select-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin: 0 .5rem 1rem;
+}
+
+.wish-page-container .add-item-box .upload-box .submit-btn {
+  width: 100%;
+  border-radius: 30rpx;
+  color: #ff8d5c;
+  background: white;
+  box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.1);
+}
+
+.wish-page-container .add-item-box .wrapper-add-icon {
+  width: 64rpx;
+  height: 64rpx;
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.wish-page-container .add-item-box.open {
+  height: auto;
+  animation: openAddBox 1s ease forwards;
+}
+
+.wish-page-container .add-item-box.open .upload-box {
+  display: block;
+}
+
+.wish-page-container .add-item-box.open .wrapper-add-icon {
+  display: none;
+}
+
+.wish-page-container .add-item-box.close {
+  animation: closeAddBox 1s ease forwards;
+}
+
+@keyframes openAddBox {
+  from {
+    width: 150rpx;
+    height: 80rpx;
+    color: #9b6507;
+  }
+  to {
+    width: 80%;
+    height: 630rpx;
+  }
+}
+
+@keyframes closeAddBox {
+  from {
+    width: 80%;
+    height: 630rpx;
+  }
+  to {
+    width: 150rpx;
+    height: 80rpx;
+  }
+}
+
+@keyframes showItem {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes showItemFromLeft {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes showItemFromRight {
+  from {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes showManInfo {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes showWomanInfo {
+  from {
+    opacity: 0;
+    transform: translate(50%, -50%);
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}

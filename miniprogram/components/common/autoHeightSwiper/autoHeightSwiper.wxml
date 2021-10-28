@@ -1,0 +1,9 @@
+<view class="swiper-box">
+  <swiper class="swiper" indicator-dots="{{imageList.length > 1}}" indicator-active-color="#ffbe46" style="height: {{swiperHeight}}px;" bindchange="swiperChange">
+    <block wx:for="{{imageList}}" wx:key="index">
+      <swiper-item>
+        <image class="wish-image image-{{index}}" src="{{item}}" mode="widthFix" bindload="setDefaultHeight"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

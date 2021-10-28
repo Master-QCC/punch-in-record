@@ -1,0 +1,27 @@
+.days-card-container {
+  position: relative;
+  border-radius: 30rpx;
+  box-shadow: 0 10px 12px 2px rgba(0, 0, 0, 0.1);
+
+  .bg {
+    display: block;
+    width: 100%;
+    border-radius: 30rpx;
+  }
+
+  .days-time {
+    position: absolute;
+    top: 32rpx;
+    left: 32rpx;
+    
+    .days-num {
+      font-size: 100rpx;
+      font-weight: bold;
+      margin-top: 16rpx;
+    }
+    
+    .tian {
+      font-weight: bold;
+    }
+  }
+}

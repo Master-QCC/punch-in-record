@@ -1,0 +1,4 @@
+<view class="cartoon-box">
+  <view class="cartoon-text" wx:if="{{helloText}}">{{helloText}}</view>
+  <image class="cartoon-image" bindtap="_sayHello" mode="aspectFit" src="{{imagePath}}"></image>
+</view>

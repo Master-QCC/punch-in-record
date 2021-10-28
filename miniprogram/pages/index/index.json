@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "cartoonFigure": "../../components/common/cartoonFigure/cartoonFigure",
+    "punchToday": "../../components/punchRecord/punchToday/punchToday"
+  }
+}

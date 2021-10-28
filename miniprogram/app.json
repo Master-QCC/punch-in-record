@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/history/history",
+    "pages/wish/wish",
+    "pages/history/vlog/vlog",
+    "pages/my/my"
+  ],
+  "subpackages": [
+    {
+      "root": "pages/weatherPkg/",
+      "pages": [
+        "components/ec-canvas",
+        "weather/weather"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "Little Thing",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "color": "#00000",
+    "selectedColor": "#ffbe46",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "images/icon/survey.png",
+      "selectedIconPath": "images/icon/survey-active.png",
+      "text": "今日"
+    }, {
+      "pagePath": "pages/history/history",
+      "iconPath": "images/icon/history.png",
+      "selectedIconPath": "images/icon/history-active.png",
+      "text": "回忆"
+    }, {
+      "pagePath": "pages/wish/wish",
+      "iconPath": "images/icon/wish.png",
+      "selectedIconPath": "images/icon/wish-active.png",
+      "text": "心愿"
+    }, {
+      "pagePath": "pages/my/my",
+      "iconPath": "images/icon/user.png",
+      "selectedIconPath": "images/icon/user-active.png",
+      "text": "小东西"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "根据当前位置获取实时天气信息"
+    }
+  },
+  "plugins": {
+    
+  }
+}

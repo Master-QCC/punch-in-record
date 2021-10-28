@@ -1,0 +1,118 @@
+<view class="page-container wish-page-container">
+  <view class="flex wish-info">
+    <view class="wish-list man">
+      <image class="user-icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/wish/man.jpg" mode="aspectFill"></image>
+      <view class="flex total">
+        <view class="item {{manFinishedClass ? 'active' : ''}}" bindtap="showManFinish">
+          <image class="icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/wish/finished.png" mode="aspectFill"></image>
+          <view class="number finish">{{manFinishedNumber}}</view>
+        </view>
+        <view class="item {{manUnfinishedClass ? 'active' : ''}}" bindtap="showManUnfinish">
+          <image class="icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/wish/unfinish.png" mode="aspectFill"></image>
+          <view class="number unfinish">{{manUnfinishNumber}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="wish-list woman">
+      <image class="user-icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/wish/woman.jpg" mode="aspectFill"></image>
+      <view class="flex total">
+        <view class="item {{womanFinishedClass ? 'active' : ''}}" bindtap="showWomanFinish">
+          <image class="icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/wish/finished.png" mode="aspectFill"></image>
+          <view class="number finish">{{womanFinishedNumber}}</view>
+        </view>
+        <view class="item {{womanUnfinishedClass ? 'active' : ''}}" bindtap="showWomanUnfinish">
+          <image class="icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/wish/unfinish.png" mode="aspectFill"></image>
+          <view class="number unfinish">{{womanUnfinishNumber}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 愿望列表 -->
+  <view class="flex wish-section">
+    <view class="wish-list man {{displayMan ? 'animation' : ''}}">
+      <block wx:for="{{manWishList}}" wx:key="index" wx:for-index="idx">
+        <view class="wish-item" wx:if="{{(showMan === 'all' || showMan === item.finished)}}">
+          <block wx:if="{{item.imageList.length > 0}}">
+            <autoHeightSwiper imageList="{{item.imageList}}"></autoHeightSwiper>
+          </block>
+          <view class="description">
+            <textarea class="textarea" maxlength="300" disable-default-padding="true" auto-height="true" disabled="{{isManUser}}" cursor-spacing="8" value="{{item.description}}" bindblur="submitManDescription" data-index="{{idx}}"/>
+          </view>
+          <view class="time">{{item.time}}</view>
+          <view class="flex finish-btn">
+            <view class="flex star-section">
+              <block wx:for="{{item.star}}" wx:key="index">
+                <image class="star-icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/wish/star_fill.svg" mode="aspectFill"></image>
+              </block>
+            </view>
+            <checkbox class="btn" checked="{{item.finished}}" disabled="{{isManUser}}" bindtap="checkboxChange" data-index="{{idx}}"/>
+          </view>
+          <view class="tag" wx:if="{{item.star === 5 && item.finished}}"><text class="tag-text">Get it!</text></view>
+          <view class="flex cheer" wx:elif="{{item.star === 5 && !item.finished}}">
+            <image class="cheer-icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/wish/cheer_up.svg" mode="aspectFill"></image>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="wish-list woman {{displayWoman ? 'animation' : ''}}">
+      <block wx:for="{{womanWishList}}" wx:key="index" wx:for-index="idx">
+        <view class="wish-item" wx:if="{{(showWoman === 'all' || showWoman === item.finished)}}">
+          <block wx:if="{{item.imageList.length > 0}}">
+            <autoHeightSwiper imageList="{{item.imageList}}"></autoHeightSwiper>
+          </block>
+          <view class="description">
+            <textarea class="textarea" maxlength="300" disable-default-padding="true" auto-height="true" cursor-spacing="8" disabled="{{isWomanUser}}" value="{{item.description}}" bindblur="submitWomanDescription" data-index="{{idx}}"/>
+          </view>
+          <view class="time">{{item.time}}</view>
+          <view class="flex finish-btn">
+            <view class="flex star-section">
+              <block wx:for="{{item.star}}" wx:key="index">
+                <image class="star-icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/wish/star_fill.svg" mode="aspectFill"></image>
+              </block>
+            </view>
+            <checkbox class="btn" checked="{{item.finished}}" disabled="{{isWomanUser}}" bindtap="checkboxChange" data-index="{{idx}}"/>
+          </view>
+          <view class="tag" wx:if="{{item.star === 5 && item.finished}}"><text class="tag-text">Get it!</text></view>
+          <view class="flex cheer" wx:elif="{{item.star === 5 && !item.finished}}">
+            <image class="cheer-icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/wish/cheer_up.svg" mode="aspectFill"></image>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 添加心愿 -->
+	<view class="add-item-box {{openUpload ? 'open' : ''}} {{closeUpload ? 'close' : ''}}" bindtap="openUploadBox" catchtouchmove="true" wx:if="{{showUploadBtn}}">
+		<view class="filter-background"></view>
+		<image class="wrapper-add-icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/add.svg"></image>
+		<view class="upload-box">
+			<view class="header">
+				<text class="title">添加心愿</text>
+				<image catchtap="closeUploadBox" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/close.svg" class="close-btn"></image>
+			</view>
+			<view class="detial-box">
+				<view class="detial-item detial-description">
+					<view class="description">内容：</view>
+					<textarea maxlength="300" auto-height="true" cursor-spacing="8" model:value="{{descriptionValue}}" />
+				</view>
+				<view class="image-upload-box {{selected ? '': 'border'}}" bindtap="selectImg">
+					<scroll-view scroll-x="true" class="upload-list" wx:if="{{selected}}">
+						<block wx:for="{{userImageList}}" wx:key="index">
+							<image mode="aspectFill" class="upload-image" data-index='{{index}}' src="{{item}}" bindlongpress="deleteImg"></image>
+						</block>
+					</scroll-view>
+					<view class="add-image" wx:else>
+						<image  class="add-icon" src="cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/icon/add-image.svg"></image>
+						<text class="upload-des">点击添加图片，长按即可删除</text>
+					</view>
+        </view>
+        <view class="flex star-select-section" bindtouchmove="selectStar" bindtap="selectStar">
+          <block wx:for="{{5}}" wx:key="index">
+            <image class="star-select-icon" src="{{score > index ? 'cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/wish/star_fill.svg' : 'cloud://smallthing-qcc.736d-smallthing-qcc-1304182350/wish/star_outline.svg'}}" mode="aspectFill"></image>
+          </block>
+        </view>
+			</view>
+			<button type="default" class="submit-btn" bindtap="doUpload">添加</button>
+		</view>
+	</view>
+</view>
